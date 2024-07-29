@@ -12,7 +12,6 @@ export async function fetchProduct(id) {
     throw new Error(`Failed to fetch product with id ${id}`);
   }
   const data = await response.json();
-  console.log (data)
   return {
     ...data,
   };
