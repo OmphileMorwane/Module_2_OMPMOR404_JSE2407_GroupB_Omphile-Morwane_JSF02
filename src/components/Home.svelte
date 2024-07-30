@@ -1,4 +1,5 @@
 <script>
+  import Navbar from './Header.svelte';
   import { onMount } from 'svelte';
   import { fetchProducts, fetchCategories } from './api';
   import ProductCard from './ProductCard.svelte';
@@ -62,6 +63,8 @@
     sortOrder.set(event.target.value);
   };
 </script>
+
+<Navbar />
 
 <main>
   <div>
