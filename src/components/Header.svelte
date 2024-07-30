@@ -1,5 +1,21 @@
 <script>
         let navbarOpen = false;
+
+/**
+ * Toggles the state of the navigation bar.
+ * 
+ * This function switches the `navbarOpen` state between true and false,
+ * which controls whether the mobile navigation menu is visible or hidden.
+ * 
+ * @function toggleNavbar
+ * @returns {void}
+ * 
+ * @example
+ * <button on:click={toggleNavbar} type="button">
+ *   Toggle Menu
+ * </button>
+ */
+
       
         function toggleNavbar() {
           navbarOpen = !navbarOpen;

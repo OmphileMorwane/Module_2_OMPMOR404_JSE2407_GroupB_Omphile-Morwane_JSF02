@@ -1,4 +1,14 @@
+
 <script>
+
+  /**
+ * @module MainPage
+ * 
+ * This module handles the main page of the application, including fetching products and categories,
+ * filtering and sorting products, and managing the loading state. It also includes the skeleton loading
+ * state and product grid display.
+ */
+
   import Navbar from './Header.svelte';
   import { onMount } from 'svelte';
   import { fetchProducts, fetchCategories } from './api';
