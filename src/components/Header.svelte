@@ -10,11 +10,11 @@
         <nav class="navbar">
           <div class="navbar-container">
             <a href="/" class="navbar-logo">
-              <img src="src/assets/online-shop.png" alt="Flowbite Logo" />
+              <img src="src/assets/online-shop.png" alt="SwiftCart Logo" />
               <span>SwiftCart</span>
             </a>
             <button on:click={toggleNavbar} type="button" class="navbar-toggle" aria-controls="navbar-dropdown" aria-expanded={navbarOpen}>
-              <svg class="cart-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
@@ -29,161 +29,171 @@
                     </svg>
                   </a>
                 </li>
-                <li><a href="/cart" class="hidden-lg">Cart</a></li>
                 <li><a href="/login">Login</a></li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-
+      
       <style>
-  .sticky {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-  .navbar {
-    background-color: #6b7280;
-    border-color: #d1d5db;
-    width: 100%;
-    padding: 0 1rem;
-  }
-  .navbar-container {
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 0.5rem 0rem;
-  }
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-  }
-  .navbar-logo img {
-    height: 2rem;
-  }
-  .navbar-logo span {
-    margin-left: 0.75rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    white-space: initial;
-  }
+        .sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar {
+  background-color: #6b7280;
+  border-color: #d1d5db;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-logo img {
+  height: 2rem;
+}
+
+.navbar-logo span {
+  margin-left: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.navbar-toggle {
+  display: none; /* Hidden by default */
+  align-items: center;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: #6b7280;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-toggle:hover {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu.open {
+  display: block;
+}
+
+.navbar-menu ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-menu li {
+  position: relative;
+}
+
+.navbar-menu a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.navbar-menu a:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
   .navbar-toggle {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    justify-content: center;
-    font-size: 0.875rem;
-    color: white;
-    border-radius: 0.5rem;
-    background-color: #6b7280; 
-    border: none;
-    cursor: pointer;
-  } 
-  .navbar-toggle:hover {
-    background-color: #f3f4f6;
+    display: inline-flex; /* Show hamburger menu on small screens */
   }
 
-  /* Hide hamburger menu on larger screens */
-  @media (min-width: 768px) {
-    .navbar-toggle {
-      display: none;
-    }
-  }
-  
   .navbar-menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .navbar-menu.open {
-    display: block;
-  }
-  .navbar-menu ul {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    width: 100%
-  }
-  .navbar-menu li {
-    list-style: none;
-    position: relative;
-  }
-  .navbar-menu a {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: white;
-    text-decoration: none;
-    border-radius: 0.25rem;
-  }
-  .navbar-menu a:hover {
-    background-color: #f3f4f6;
-    color: #1d4ed8;
-  }
-  @media (max-width: 767px) {
-    .navbar-menu {
-      display: none;
-      width: 100%;
-      flex-direction: column;
-      background-color: #6b7280;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding: 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
-    }
-    .navbar-menu.open {
-      display: flex;
-    }
-    .navbar-menu ul {
-      flex-direction: column;
-    }
-    .navbar-menu a {
-      display: block;
-      padding: 0.5rem 0.75rem;
-      color: white;
-      text-decoration: none;
-      border-radius: 0.25rem;
-    }
-  }
-  .navbar-links {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-  }
-  .cart-notification {
+    display: none; /* Hidden by default on small screens */
+    width: 100%;
+    flex-direction: column;
+    background-color: #6b7280;
     position: absolute;
-    right: -0.5rem;
-    top: -0.5rem;
-    display: flex;
-    height: 0.5rem;
-    width: 0.5rem;
-    border-radius: 50%;
-    background-color: #ef4444;
-    padding: 0.75rem;
-    font-size: 0.75rem;
-    color: white;
-    font-weight: bold;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
   }
-  .cart-icon {
-    height: 2.5rem;
-    width: 1.5rem;
-    stroke: white;
-    cursor: pointer;
+
+  .navbar-menu.open {
+    display: flex; /* Show menu when toggled open */
   }
-  .cart-icon-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
+
+  .navbar-menu ul {
+    flex-direction: column;
   }
+
+  .navbar-menu a {
+    padding: 0.5rem;
+  }
+}
+
+.cart-notification {
+  position: absolute;
+  right: -0.5rem;
+  top: -0.5rem;
+  display: flex;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #ef4444;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.cart-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  stroke: white;
+  cursor: pointer;
+}
+
+.menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  stroke: white;
+}
 </style>
